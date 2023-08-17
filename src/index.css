@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	outline: none;
+}
+
+.b-shadow {
+	box-shadow: 0 0 10px #ddd;
+}
+
+.b-shadow-red {
+	box-shadow: 0 0 10px #f66e90f1;
+}
+
+.t-shadow {
+	text-shadow: 0 0 10px rgba(0, 232, 155, 0.85);
+}
