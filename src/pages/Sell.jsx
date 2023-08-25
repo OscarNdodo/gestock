@@ -5,34 +5,52 @@ import NewClient from "../components/NewClient";
 import NewProduct from "../components/NewProduct";
 
 const Sell = () => {
-	const [inputValue, setInputValue] = useState("");
-
 	//Data
-	const clients = [
-		{ id: 1, name: "Nenhum", account: 0 },
-		{ id: 2, name: "Nenhum", account: 0 },
-	]
+	let inputValue;
+	// let clientes = new Array();
+
 	//Conditions
-	const addProduct = false;
+	const [addProduct, setAddProduct] = useState(false);
+	const [addClient, setAddClient] = useState(false);
+	const [clientes, setClientes] = useState([])
+
+
+	//Functions
 	const value = (event) => {
-		setInputValue(event.target.value);
+		inputValue = event.target.value;
 	}
+
 	const button = (event) => {
 		event.preventDefault();
-		if (inputValue.length < 1) {
-			console.log("Campo Vazio")
-		}
+		setClientes([inputValue]);
+		setAddClient(false);
+		setAddProduct(true);
+		const i = event.target.parentNode.children[0].value = "";
+		console.log(clientes);
 	}
+
+	const getData = (event) => {
+		event.preventDefault();
+		setAddProduct(false);
+	}
+
 	return (
 		<div className="flex flex-col items-center justify-center">
 			<NewClient event={value} button={button} />
-			{/* <h1 className="mt-8 uppercase text-blue-600 font-extrabold underline">Clientes pendentes</h1> */}
+			<div className="flex items-center justify-center flex-wrap">
+				{
+					addClient && (
+						clientes.map((element, index) => (<Client key={index} name={element} />))
+					)
+				}
+			</div>
 			{
-
+				addProduct && (
+					<NewProduct event={getData} />
+				)
 			}
-			{/* <div className="flex items-center justify-center flex-wrap">
-
-			</div> */}
+			<Client />
+			<Account />
 		</div>
 	)
 }

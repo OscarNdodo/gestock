@@ -1,6 +1,6 @@
 const Account = () => {
 	return (
-		<table className="w-8/12 flex flex-col items-center justify-start b-shadow px-2 my-2">
+		<table className="w-8/12 flex flex-col items-center justify-start b-shadow table-auto px-2 my-2">
 			<thead className="w-full">
 				<tr className="w-full flex items-center justify-between py-4">
 					<th className="text-gray-800">No.</th>
